@@ -1,4 +1,5 @@
 window.$ = window.jQuery = require('jquery');
+const { error } = require('jquery');
 const {monteCarloSimulation} = require('./class/DrunkWalk.js')
 const {Chart} = require('chart.js/auto');
 
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded',()=>{
         try {
             let m = inputM.value;
             let n = inputN.value;
+            if (m < 1 | n < 1){
+                throw new Error("Error en los valores")
+            }
             let result = monteCarloSimulation(m,n);
             if (result === null) throw new Error("Error en los valores");
             let promedio = result.promedio
@@ -60,6 +64,18 @@ document.addEventListener('DOMContentLoaded',()=>{
             crearGrafica(datos);
         } catch (error) {
             new Notification(error);
+        }
+    })
+
+    inputM.addEventListener('change',()=>{
+        if (inputM.value < 1 ){
+            inputM.value = 1;
+        }
+    })
+
+    inputN.addEventListener('change',()=>{
+        if(inputN.value < 1){
+            inputN.value = 1
         }
     })
 })
