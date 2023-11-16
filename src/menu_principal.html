@@ -11,8 +11,9 @@
   
   <style>
     button{
-      margin: 4px;
+      margin-top: 10px;
       width: 100%;
+      height: fit-contents;
     }
 
     h1{
@@ -22,6 +23,12 @@
 
     body{
       background-color: #f5f5f5;
+    }
+
+    .btntext{
+      vertical-align: middle;
+      margin: 0;
+      font-size: large;
     }
     
   </style>
@@ -44,7 +51,9 @@
             <label for="input-n">Número de pasos (n)</label>
             <input type="number" class="form-control" id="input-n" value="10" min="1">
           </div>
-          <button id="btnSimular" type="submit" class="btn btn-primary">Simular</button>
+          <button id="btnSimular" type="submit" class="btn btn-primary">
+            <p class="btntext">&#x23E9 Simular</p>  
+          </button>
           <div id="divGrafica">
             <canvas id="grafica">
 
@@ -70,6 +79,7 @@
               
             </tbody>
           </table>
+          
         </div>
       </div>
     </div>
