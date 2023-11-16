@@ -40,12 +40,12 @@
     <br></br>
     <p>Este programa simula el movimiento aleatorio de un borracho durante un número de pasos y calcula la distancia promedio al origen después de varias repeticiones.</p>
     <div class="row">
-      <div class="col-md-6" id="divParametros">
+      <div class="col-md-5" id="divParametros">
         <h2>Parámetros de la simulación</h2>
         <div id="form-simulacion">
           <div class="form-group">
             <label for="input-m">Número de repeticiones (m)</label>
-            <input type="number" class="form-control" id="input-m" value="10" min="1">
+            <input type="number" class="form-control" id="input-m" value="17" min="1">
           </div>
           <div class="form-group">
             <label for="input-n">Número de pasos (n)</label>
@@ -59,9 +59,14 @@
 
             </canvas>
           </div>
+          <div>
+            <canvas id="grafica2">
+              
+            </canvas>
+          </div>
         </div>
       </div>
-      <div class="col-md-6" id="div-resultados">
+      <div class="col-md-7" id="div-resultados">
         <h2>Resultados de la simulación</h2>
         <div >
           <p>La distancia promedio al origen es <span id="span-promedio">0.00</span></p>

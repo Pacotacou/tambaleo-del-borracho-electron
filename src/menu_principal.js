@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     let inputN = document.getElementById('input-n');
 
     let grafica
-
     const crearGrafica = (datos)=>{
         if(grafica ){
             grafica.destroy();
@@ -20,20 +19,47 @@ document.addEventListener('DOMContentLoaded',()=>{
             type: 'line',
             data: {
                 labels: datos.map((i)=>{
-                    return i.x.toFixed(2);
+                    return i.paso;
                 }),
                 datasets: [{
-                    label:'Tambaleo del borracho',
+                    label:'distancia del origen',
                     data: datos.map((i)=>{
-                        return i.y.toFixed(2);
+                        return i.distancia.toFixed(2);
                     }),
                     fill:false
                 }]
                 
             }
         })
-
         
+    }
+
+    let grafica2
+    const crearGrafica2 = (datos)=>{
+        if(grafica2){
+            grafica2.destroy()
+        }
+
+        let data = [{x:0,y:0}]
+        data.push(...datos.map(i =>{
+            return {
+                x: i.x.toFixed(2),
+                y: i.y.toFixed(2)};
+        }))
+
+        grafica2=new Chart(document.getElementById("grafica2"),{
+            type: 'scatter',
+            data: {
+                datasets:[{
+                    label: 'Movimiento del borracho',
+                    data: data
+                }]
+            },
+            options:{
+                showLine:true
+            }
+           
+        })
     }
 
     btnSimular.addEventListener('click',()=>{
@@ -62,6 +88,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             tableResultados.innerHTML = tbody.innerHTML;
             spanPromedio.textContent = promedio;
             crearGrafica(datos);
+            crearGrafica2(datos);
         } catch (error) {
             new Notification(error);
         }
