@@ -64,4 +64,4 @@ function randomStep() {
   }
   
 
-  module.exports = monteCarloSimulation;
+  module.exports = {monteCarloSimulation};
