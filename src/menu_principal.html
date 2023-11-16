@@ -1,0 +1,61 @@
+<html>
+<head>
+  <!-- Incluir el código javascript que genera la simulación -->
+  <script src="menu_principal.js"></script>
+  <!-- Incluir el CDN de jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- Incluir el CDN de bootstrap -->
+  <link rel="stylesheet" href="../css/bootstrap.min (1).css">
+  <!-- Incluir el CDN de bootstrap js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    button{
+      margin: 4px;
+      width: 100%;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container" style="padding-top: 40px;">
+    <h1>Simulación del tambaleo del borracho con la técnica montecarlo</h1>
+    <p>Este programa simula el movimiento aleatorio de un borracho durante un número de pasos y calcula la distancia promedio al origen después de varias repeticiones.</p>
+    <div class="row">
+      <div class="col-md-4" id="divParametros">
+        <h2>Parámetros de la simulación</h2>
+        <div id="form-simulacion">
+          <div class="form-group">
+            <label for="input-m">Número de repeticiones (m)</label>
+            <input type="number" class="form-control" id="input-m" value="10" min="1">
+          </div>
+          <div class="form-group">
+            <label for="input-n">Número de pasos (n)</label>
+            <input type="number" class="form-control" id="input-n" value="10" min="1">
+          </div>
+          <button id="btnSimular" type="submit" class="btn btn-primary">Simular</button>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h2>Resultados de la simulación</h2>
+        <div id="div-resultados">
+          <p>La distancia promedio al origen es <span id="span-promedio">0.00</span></p>
+          <table class="table table-striped" id="table-coordenadas">
+            <thead>
+              <tr>
+                <th scope="col">Paso</th>
+                <th scope="col">Coordenada x</th>
+                <th scope="col">Coordenada y</th>
+                <th scope="col">Distancia al origen</th>
+              </tr>
+            </thead>
+            <tbody id="tablaResultados">
+              <!-- Aquí se mostrarán las filas de la tabla generadas por el código javascript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
